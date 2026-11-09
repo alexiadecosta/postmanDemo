@@ -17,7 +17,7 @@ lock=threading.Lock() #prevents requests from making several winners
 def makeTicket():
     global attempts, winner, ticketCounter
     data=request.get_json(silent=True) or {}
-    student_name=data.get("student_name", "Anonymous")
+    student_name=data.get("student_name")
     with lock:
         if winner is not None:
             return jsonify({ "success":False, "message": "Someone has already won the lottery! ( ˶°ㅁ°) !! ", "winner":winner}),409
