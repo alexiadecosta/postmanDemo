@@ -23,7 +23,7 @@ def makeTicket():
             return jsonify({ "success":False, "message": "Someone has already won the lottery! ( ˶°ㅁ°) !! ", "winner":winner}),409
         attempts += 1
         ticketCounter +=1
-        probability = 0.03 if attempts <=10 else 0.15
+        probability = 0.03 if attempts <=40 else 0.15
         isWinner = random.random() < probability
         ticket = {"ticketId": f"TICKET-{ticketCounter:04d}", "ticketNumber": random.randint(100000, 999999), "student_name": student_name, "attempt": attempts, "winning": isWinner}
         if isWinner:
