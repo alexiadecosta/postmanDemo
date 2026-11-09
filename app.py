@@ -21,6 +21,14 @@ def makeTicket():
     with lock:
         if winner is not None:
             return jsonify({ "success":False, "message": "Someone has already won the lottery! ( ˶°ㅁ°) !! ", "winner":winner}),409
+        # require a name
+        if student_name is None:
+            return jsonify(
+                {
+                    "success": False,
+                    "message": "You must specify a name (or nickname) to participate in the lottery",
+                }
+            ), 406
         attempts += 1
         ticketCounter +=1
         probability = 0.03 if attempts <=40 else 0.15
