@@ -20,7 +20,7 @@ def makeTicket():
     student_name=data.get("student_name", "Anonymous")
     with lock:
         if winner is not None:
-            return jsonify({ "success":False, "message": "Someone has already won the lottery! :O", "winner":winner}),409
+            return jsonify({ "success":False, "message": "Someone has already won the lottery! ( ˶°ㅁ°) !! ", "winner":winner}),409
         attempts += 1
         ticketCounter +=1
         probability = 0.03 if attempts <=10 else 0.15
